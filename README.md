@@ -1,31 +1,39 @@
 # MORA Nội Thất MDF
 
-Production-oriented website foundation for MORA furniture.
+Website production-oriented cho MORA tại Tân Phú, TP.HCM.
 
-## Business data
-- Hotline: 0916 85 85 66
-- Location: Đường Lê Trọng Tấn, Tân Phú, TP.HCM
-- Brand: MORA
-
-## Current architecture
+## Đã triển khai
 - Next.js App Router + TypeScript
-- SEO-ready routes
-- Product/project/content structures
-- Lead capture endpoint
-- Responsive warm-minimal UI
-- CMS placeholder
-- Sitemap + robots
+- Responsive warm-minimal frontend
+- Product, project, knowledge, pricing, quote routes
+- Dynamic sitemap + robots
+- Structured data business foundation
+- GA4 loader controlled by environment variable
+- UTM/GCLID capture foundation
+- Lead endpoint + thank-you page
+- Database SQL schema for products/projects/posts/leads
+- CMS API read foundation
+- /admin protected by environment-based Basic Auth
+- GitHub Actions build CI
 
-## Important
-Real product pricing, MDF specifications, warranty, exact workshop address, Zalo and project media are intentionally not fabricated.
+## Không bịa dữ liệu kinh doanh
+Giá, vật liệu, bảo hành, Zalo, địa chỉ số nhà và ảnh/công trình thật chưa được tự tạo.
 
-## Next production phase
-1. Add PostgreSQL or equivalent persistent database
-2. Add secure authentication for /admin
-3. Implement CRUD CMS for products, projects, posts, leads
-4. Connect image storage
-5. Configure production domain
-6. Replace https://example.com in metadata/sitemap/robots
-7. Connect GA4, Google Ads conversions, Search Console and UTM lead attribution
-8. Add Zalo when official account/phone is confirmed
-9. Run build/Lighthouse and responsive QA
+## BLOCKERS cần chủ website cung cấp/tạo
+1. Production database DATABASE_URL
+2. Production hosting/deployment for Next.js
+3. Final domain -> NEXT_PUBLIC_SITE_URL
+4. ADMIN_USER + ADMIN_PASSWORD secret values on hosting (không commit vào GitHub)
+5. Image storage provider/credentials
+6. GA4 measurement ID, Google Ads conversion ID/label
+7. Official Zalo URL/phone
+8. Real product data, pricing, materials, warranty and project images
+
+## Sau khi có blockers
+- Replace in-memory CMS adapter with database queries
+- Enable authenticated CRUD writes
+- Persist leads
+- Image upload/storage
+- Production tracking/conversion events
+- Domain Search Console verification
+- Final Lighthouse, accessibility and device QA
