@@ -1,7 +1,23 @@
 import {priceVariant,type Variant} from "./pricing";
-const wardrobeVariants:Variant[]=[
+const make=(x:Variant[])=>x.map(priceVariant);
+const wardrobe:Variant[]=[
 {sku:"MORA-WD-120",label:"1,2m × 2m × 0,55m",width:1200,height:2000,depth:550,bodySheets:4,backSheets:1,hinges:8,handles:2,laborHours:6,hardwareOther:180000,consumables:150000},
 {sku:"MORA-WD-160",label:"1,6m × 2m × 0,55m",width:1600,height:2000,depth:550,bodySheets:5,backSheets:2,hinges:12,handles:4,laborHours:7,hardwareOther:220000,consumables:180000},
 {sku:"MORA-WD-180",label:"1,8m × 2m × 0,55m",width:1800,height:2000,depth:550,bodySheets:6,backSheets:2,hinges:12,handles:4,laborHours:8,hardwareOther:250000,consumables:200000},
 {sku:"MORA-WD-200",label:"2m × 2m × 0,55m",width:2000,height:2000,depth:550,bodySheets:6,backSheets:2,hinges:16,handles:4,laborHours:9,hardwareOther:280000,consumables:220000}];
-export const catalog=[{slug:"tu-quan-ao-mdf-modern",name:"Tủ quần áo MDF Modern",category:"Tủ quần áo",description:"Dòng tủ cánh mở tối giản, nhiều kích thước. Giá đang dùng mô hình chi phí nghiên cứu và sẽ được hiệu chỉnh bằng giá mua thực tế của xưởng.",variants:wardrobeVariants.map(priceVariant)}];
+const bed:Variant[]=[
+{sku:"MORA-BED-120",label:"Nệm 1,2m × 2m",width:1200,height:350,depth:2000,bodySheets:3,backSheets:0,hinges:0,handles:0,laborHours:5,hardwareOther:250000,consumables:150000},
+{sku:"MORA-BED-160",label:"Nệm 1,6m × 2m",width:1600,height:350,depth:2000,bodySheets:4,backSheets:0,hinges:0,handles:0,laborHours:6,hardwareOther:300000,consumables:170000},
+{sku:"MORA-BED-180",label:"Nệm 1,8m × 2m",width:1800,height:350,depth:2000,bodySheets:4,backSheets:0,hinges:0,handles:0,laborHours:6.5,hardwareOther:320000,consumables:180000}];
+const desk:Variant[]=[
+{sku:"MORA-DESK-100",label:"1m × 0,75m × 0,55m",width:1000,height:750,depth:550,bodySheets:1,backSheets:0,hinges:0,handles:1,laborHours:2.5,hardwareOther:80000,consumables:70000},
+{sku:"MORA-DESK-120",label:"1,2m × 0,75m × 0,6m",width:1200,height:750,depth:600,bodySheets:2,backSheets:0,hinges:0,handles:1,laborHours:3,hardwareOther:90000,consumables:80000}];
+const shoe:Variant[]=[
+{sku:"MORA-SHOE-080",label:"0,8m × 1m × 0,35m",width:800,height:1000,depth:350,bodySheets:2,backSheets:1,hinges:4,handles:2,laborHours:3.5,hardwareOther:90000,consumables:90000},
+{sku:"MORA-SHOE-120",label:"1,2m × 1m × 0,35m",width:1200,height:1000,depth:350,bodySheets:2,backSheets:1,hinges:6,handles:3,laborHours:4,hardwareOther:120000,consumables:100000}];
+export const catalog=[
+{slug:"tu-quan-ao-mdf-modern",name:"Tủ quần áo MDF Modern",category:"Tủ quần áo",description:"Tủ cánh mở tối giản, nhiều kích thước.",variants:make(wardrobe)},
+{slug:"giuong-mdf-modern",name:"Giường MDF Modern",category:"Giường",description:"Giường MDF kiểu tối giản theo kích thước nệm phổ biến.",variants:make(bed)},
+{slug:"ban-lam-viec-mdf",name:"Bàn làm việc MDF",category:"Bàn",description:"Bàn MDF gọn cho phòng ngủ và góc làm việc.",variants:make(desk)},
+{slug:"tu-giay-mdf",name:"Tủ giày MDF",category:"Tủ giày",description:"Tủ giày sâu gọn cho căn hộ và nhà phố.",variants:make(shoe)}
+];
