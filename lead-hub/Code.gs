@@ -1,6 +1,6 @@
 const SHEET_NAME="Leads";
 const THANK_YOU_BASE="https://thuvanreal-ai.github.io/mora-noi-that/cam-on/";
-const HEADERS=["timestamp","website","gclid","product","sku","size","viewed_price","name","phone","house_number","street","ward","province","note","page_url","utm_source","utm_medium","utm_campaign"];
+const HEADERS=["timestamp","website","gclid","product","sku","size","custom_width","custom_height","custom_depth","viewed_price","name","phone","house_number","street","ward","province","note","page_url","utm_source","utm_medium","utm_campaign"];
 function clean(v){return String(v||"").replace(/^[=+\-@]/,"'").trim().slice(0,1000)}
 function doPost(e){
  const lock=LockService.getScriptLock();
