@@ -22,6 +22,10 @@ jobs:
       - run: npm run build
         env:
           NEXT_PUBLIC_SITE_URL: https://thuvanreal-ai.github.io/mora-noi-that
+          NEXT_PUBLIC_LEAD_ENDPOINT: ${{ vars.NEXT_PUBLIC_LEAD_ENDPOINT }}
+          NEXT_PUBLIC_GA4_ID: ${{ vars.NEXT_PUBLIC_GA4_ID }}
+          NEXT_PUBLIC_GOOGLE_ADS_ID: ${{ vars.NEXT_PUBLIC_GOOGLE_ADS_ID }}
+          NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL: ${{ vars.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL }}
       - uses: actions/configure-pages@v5
         with:
           enablement: true
