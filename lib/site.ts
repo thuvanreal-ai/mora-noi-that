@@ -1,0 +1,1 @@
+export const site={name:"MORA Nội Thất MDF",phone:"0916858566",phoneDisplay:"0916 85 85 66",address:"Đường Lê Trọng Tấn, Tân Phú, TP.HCM",url:process.env.NEXT_PUBLIC_SITE_URL||"https://example.com"};
