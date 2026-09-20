@@ -1,7 +1,7 @@
 import {priceVariant,type Variant} from "./pricing";
 import {planSheets,wardrobeCutList} from "./cutting";
 const make=(x:Variant[])=>x.map(priceVariant);
-const wd=(sku:string,label:string,width:number,height:number,depth:number,hinges:number,handles:number,laborHours:number,hardwareOther:number,consumables:number):Variant=>{const cuts=wardrobeCutList(width,height,depth);const body=planSheets(cuts.body);const back=planSheets(cuts.back);return{sku,label,width,height,depth,bodySheets:body.sheets,backSheets:back.sheets,hinges,handles,laborHours,hardwareOther,consumables,cutPlan:{body,back}}};
+const wd=(sku:string,label:string,width:number,height:number,depth:number,hinges:number,handles:number,laborHours:number,hardwareOther:number,consumables:number):Variant=>{const cuts=wardrobeCutList(width,height,depth);const body=planSheets(cuts.body,true);const back=planSheets(cuts.back,true);return{sku,label,width,height,depth,bodySheets:body.sheets,backSheets:back.sheets,hinges,handles,laborHours,hardwareOther,consumables,cutPlan:{body,back}}};
 const wardrobe:Variant[]=[
 wd("MORA-WD-120","1,2m × 2m × 0,55m",1200,2000,550,8,2,6,180000,150000),
 wd("MORA-WD-160","1,6m × 2m × 0,55m",1600,2000,550,12,4,7,220000,180000),
