@@ -1,0 +1,1 @@
+import Header from "@/components/Header";import Footer from "@/components/Footer";export default function Page(){return <><Header/><main className="section"><div className="container"><h1>Liên hệ MORA</h1><p>Hotline: <a href="tel:0916858566"><b>0916 85 85 66</b></a></p><p>Đường Lê Trọng Tấn, Tân Phú, TP.HCM</p></div></main><Footer/></>}
