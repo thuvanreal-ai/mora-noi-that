@@ -1,0 +1,9 @@
+"use client";
+import {FormEvent,useRef,useState} from "react";
+type Props={endpoint:string;className?:string;id?:string;children:React.ReactNode;onSuccess?:()=>void};
+export default function LeadForm({endpoint,className,id,children,onSuccess}:Props){
+ const iframe=useRef<HTMLIFrameElement>(null);const [sending,setSending]=useState(false);const [submitted,setSubmitted]=useState(false);const [open,setOpen]=useState(false);const timer=useRef<ReturnType<typeof setTimeout>|null>(null);
+ const submit=(e:FormEvent<HTMLFormElement>)=>{if(!endpoint){e.preventDefault();return}setSending(true);setSubmitted(true)};
+ const loaded=()=>{if(!submitted)return;setSending(false);setSubmitted(false);setOpen(true);onSuccess?.();window.dispatchEvent(new CustomEvent("mora:lead-success"));if(timer.current)clearTimeout(timer.current);timer.current=setTimeout(()=>setOpen(false),5000)};
+ return <><form id={id} className={className} action={endpoint||undefined} method="post" target="mora-lead-sink" onSubmit={submit}>{children}<button className="btn primary" disabled={!endpoint||sending} type="submit">{sending?"Đang gửi...":endpoint?"Gửi đơn đặt hàng":"Lead Sheet đang chờ kết nối"}</button></form><iframe ref={iframe} name="mora-lead-sink" className="leadSink" title="MORA lead receiver" onLoad={loaded}/>{open&&<div className="leadModalBackdrop" role="presentation"><div className="leadModal" role="dialog" aria-modal="true" aria-labelledby="lead-success-title"><button className="leadModalClose" aria-label="Đóng" onClick={()=>setOpen(false)}>×</button><div className="leadModalIcon">✓</div><h2 id="lead-success-title">Đã xác nhận đơn hàng</h2><p>MORA đã nhận thông tin đặt hàng của anh/chị.</p><p><b>Nhân viên MORA sẽ liên hệ lại trong thời gian sớm nhất.</b></p><small>Thông báo này sẽ tự đóng sau 5 giây.</small></div></div>}</>
+}
