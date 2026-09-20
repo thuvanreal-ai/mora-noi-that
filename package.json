@@ -1,1 +1,21 @@
-{"name":"mora-noi-that","version":"1.0.0","private":true,"scripts":{"dev":"next dev","build":"next build","typecheck":"tsc --noEmit"},"dependencies":{"next":"14.2.35","react":"18.3.1","react-dom":"18.3.1"},"devDependencies":{"@types/node":"22.7.5","@types/react":"18.3.11","@types/react-dom":"18.3.1","typescript":"5.6.3"}}
+{
+  "name": "mora-noi-that",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "next": "15.5.24",
+    "react": "19.1.1",
+    "react-dom": "19.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "22.7.5",
+    "@types/react": "19.1.12",
+    "@types/react-dom": "19.1.9",
+    "typescript": "5.6.3"
+  }
+}
