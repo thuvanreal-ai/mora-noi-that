@@ -1,1 +1,0 @@
-import {NextResponse} from "next/server";import {cms} from "@/lib/cms";export async function GET(){return NextResponse.json({items:cms.posts()})}
