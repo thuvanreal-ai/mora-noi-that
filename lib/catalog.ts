@@ -1,10 +1,12 @@
 import {priceVariant,type Variant} from "./pricing";
+import {planSheets,wardrobeCutList} from "./cutting";
 const make=(x:Variant[])=>x.map(priceVariant);
+const wd=(sku:string,label:string,width:number,height:number,depth:number,hinges:number,handles:number,laborHours:number,hardwareOther:number,consumables:number):Variant=>{const cuts=wardrobeCutList(width,height,depth);const body=planSheets(cuts.body);const back=planSheets(cuts.back);return{sku,label,width,height,depth,bodySheets:body.sheets,backSheets:back.sheets,hinges,handles,laborHours,hardwareOther,consumables,cutPlan:{body,back}}};
 const wardrobe:Variant[]=[
-{sku:"MORA-WD-120",label:"1,2m × 2m × 0,55m",width:1200,height:2000,depth:550,bodySheets:4,backSheets:1,hinges:8,handles:2,laborHours:6,hardwareOther:180000,consumables:150000},
-{sku:"MORA-WD-160",label:"1,6m × 2m × 0,55m",width:1600,height:2000,depth:550,bodySheets:5,backSheets:2,hinges:12,handles:4,laborHours:7,hardwareOther:220000,consumables:180000},
-{sku:"MORA-WD-180",label:"1,8m × 2m × 0,55m",width:1800,height:2000,depth:550,bodySheets:6,backSheets:2,hinges:12,handles:4,laborHours:8,hardwareOther:250000,consumables:200000},
-{sku:"MORA-WD-200",label:"2m × 2m × 0,55m",width:2000,height:2000,depth:550,bodySheets:6,backSheets:2,hinges:16,handles:4,laborHours:9,hardwareOther:280000,consumables:220000}];
+wd("MORA-WD-120","1,2m × 2m × 0,55m",1200,2000,550,8,2,6,180000,150000),
+wd("MORA-WD-160","1,6m × 2m × 0,55m",1600,2000,550,12,4,7,220000,180000),
+wd("MORA-WD-180","1,8m × 2m × 0,55m",1800,2000,550,12,4,8,250000,200000),
+wd("MORA-WD-200","2m × 2m × 0,55m",2000,2000,550,16,4,9,280000,220000)];
 const bed:Variant[]=[
 {sku:"MORA-BED-120",label:"Nệm 1,2m × 2m",width:1200,height:350,depth:2000,bodySheets:3,backSheets:0,hinges:0,handles:0,laborHours:5,hardwareOther:250000,consumables:150000},
 {sku:"MORA-BED-160",label:"Nệm 1,6m × 2m",width:1600,height:350,depth:2000,bodySheets:4,backSheets:0,hinges:0,handles:0,laborHours:6,hardwareOther:300000,consumables:170000},
