@@ -1,0 +1,1 @@
+import Link from "next/link";export default function Page(){return <main className="section"><div className="container"><h1>MORA đã nhận yêu cầu</h1><p>Thông tin của bạn đã được ghi nhận. MORA sẽ liên hệ lại để xác nhận nhu cầu.</p><Link className="btn primary" href="/">Về trang chủ</Link></div></main>}
