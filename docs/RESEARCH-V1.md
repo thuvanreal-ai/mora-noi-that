@@ -1,23 +1,34 @@
-# MORA Research V1 — 20/09/2026
+# MORA Research V1 — cập nhật 20/09/2026
 
-## Benchmark UX / giá
-- MOHO: bộ lọc kích thước 90cm/1m2/1m4/1m6/1m8, màu, giá; product page có SKU, variant, giá sale/list và Zalo. Ví dụ MONZA 1m6: 8.990.000đ sale từ 11.290.000đ; 160x60x200cm.
-- MOHO NARVIK: variant 1m2/1m8; 120/180x60x200cm; 6.990.000đ sale từ 7.590.000đ ở snapshot nghiên cứu.
-- JYSK: bộ lọc kích thước rất cụ thể; LIMFJORDEN 180x58x200cm 12.720.000đ sale từ 15.900.000đ; có thông tin tồn kho/lắp đặt.
+## Mục đích
+Benchmark giá/UX để kiểm tra mô hình MORA. Không sao chép nội dung, hình ảnh hay tuyên bố của đối thủ. Giá đối thủ là snapshot công khai và có thể thay đổi.
 
-## Pattern giữ lại
-Variant theo kích thước; giá bán rõ; giá niêm yết; bộ lọc; SKU; CTA trực tiếp; thông số kỹ thuật dễ quét.
+## Benchmark tủ quần áo
+- JYSK: LIMFJORDEN 180×58×200cm giá niêm yết 15,9 triệu; snapshot 20/09/2026 có khuyến mại 12,72 triệu. LIMFJORDEN 120×58×200cm 11,9 triệu. Nguồn: https://jysk.vn/phong-ngu/tu/tu-quan-ao
+- Nội Thất Mạnh Hệ: bảng T08/2026 công bố tủ quần áo theo m², khoảng 3,1–4,0 triệu ở một nhóm bề mặt; các nhóm khác cao hơn. Nguồn: https://noithatmanhhe.vn/thi-cong-noi-that
+- UMA: TQA028 MDF Melamine 200×240×60cm 13 triệu; TQACL029 17,5 triệu trong snapshot. Nguồn: https://uma.vn/san-pham/tu-quan-ao-go-mdf-canh-lua-hien-dai-tqa028/
+- Nội thất Giá Xưởng/Thịnh Phát: TQA024 1,6×2m 5,2 triệu; TQA001 1,6×2,4m 6,9 triệu. Nguồn: https://noithatgiaxuong.vn/
+- Thịnh Phát Furniture: TQA88 cánh mở 1,6×2×0,6m MDF tiêu chuẩn 5,5 triệu, lõi xanh 6,3 triệu; 2×2m lần lượt 6,4 và 7,2 triệu. Nguồn: https://noithatthinhphat.com/tu-quan-ao-mdf-hien-dai-van-go-canh-trang-thiet-ke-da-ngan-cao-cap-tai-tphcm-tqa88-1m6-x-2m.html
+- Mộc Hải Phát: TQA-07 1,6×2×0,56m MDF Melamine 17mm, hậu 9mm, snapshot 5,25 triệu. Nguồn: https://mochaiphat.vn/san-pham/tu-quan-ao-tqa-07/
+- Nội Thất CaCo: MDF Melamine 1,6×2m 6,4 triệu; 1,8×2m 7,2 triệu; 2×2m 8 triệu. Nguồn: https://noithatcaco.vn/san-pham/tu-ao-ba-canh-go-mdf-melamine-cao-cap-1583.html
+- Nội Thất Trong Nhà: tủ MDF lõi xanh cửa lùa 1,6×2×0,55m snapshot sale 6 triệu. Nguồn: https://noithattrongnha.com/tu-quan-ao-cua-lua-hien-dai-tphcm-ms-1131/
+- Nội Thất Thái Bình: tủ 1,6×2m MDF snapshot 6,5 triệu. Nguồn: https://noithatthaibinh.com/tu-quan-ao-1-6m/
+- Nội Thất Viva: báo giá MDF Melamine theo mét dài, 2,7 triệu/md cho cấu hình được công bố; đã gồm vận chuyển/lắp đặt HCM, chưa VAT. Nguồn: https://noithatviva.vn/tu-quan-ao/tu-quan-ao-go-cong-nghiep/tu-quan-ao-mdf/
 
-## Điểm MORA cải thiện
-Không buộc khách đoán giá custom; có lựa chọn kích thước khác; 3 CTA Call/Zalo/Lead; lead mang SKU/size/price; công khai logic giá nội bộ ở chế độ nghiên cứu; không dùng ảnh đối thủ.
+## Benchmark hạng mục khác
+- Nội Thất Thái Bình: giường MDF thường 1,6m từ 3,2 triệu; lõi xanh từ 3,8 triệu trong bảng 2026. Nguồn: https://noithatthaibinh.com/8-mau-giuong-ngu-go-mdf-dep-ban-chay-nhat-2026/
+- Nội Thất HCM: giường MDF 1,6×2m có ngăn kéo 4,6 triệu, chưa VAT trong snapshot. Nguồn: https://noithathcm.vn/giuong-ngu-1m6-co-ngan-keo-gnk01/
+- VPS Decor: bảng 2026 công bố giường MDF chống ẩm 1,6/1,8m 5,5–8,5 triệu; bàn 1,2–1,8m 1,8–3,8 triệu; tủ giày 2,0–3,2 triệu/m². Nguồn: https://xuongnoithatquan7.com/dong-noi-that-go-theo-yeu-cau
+- MOHO: dùng SKU, thông số kích thước, lựa chọn cấu hình, Zalo, chính sách giao/lắp và bảo hành rõ trên product page. Nguồn: https://moho.com.vn/
+
+## Kết luận dùng cho MORA
+Thị trường không đồng nhất: vật liệu, độ dày, phụ kiện, kiểu cánh, vận chuyển/lắp đặt và VAT khác nhau nên không so giá chỉ bằng chiều ngang. MORA phải benchmark theo cấu hình tương đương và cảnh báo khi mô hình vượt dải tham chiếu; không tự hạ giá để khớp thị trường.
 
 ## Giá vật liệu tham chiếu
-An Cường 2026: MDF phủ Melamine 17mm khổ 1220x2440: 553.000–694.000đ/tấm; MDF chống ẩm phủ Melamine 17mm: 621.000–747.000đ/tấm; MDF phủ Melamine 9mm: 398.000–553.000đ/tấm. Giá chưa VAT và có thể thay đổi.
-Price engine V1 dùng 625.000đ/tấm thân 17mm và 475.000đ/tấm hậu 9mm làm midpoint nghiên cứu, KHÔNG coi là giá mua thực tế của xưởng.
-Hafele benchmark: bản lề Metalla A giảm chấn khoảng 20–21k/cái, Metalla SM khoảng 35–36k/cái trong snapshot; engine tạm dùng 30k/cái.
+An Cường 2026: MDF phủ Melamine 17mm 1220×2440 khoảng 553–694k/tấm; MDF chống ẩm phủ Melamine 17mm khoảng 621–747k; MDF phủ Melamine 9mm khoảng 398–553k. Engine V1 dùng 625k thân 17mm và 475k hậu 9mm làm giá nghiên cứu, chưa phải giá mua xưởng.
 
-## Quy tắc costing
-Tấm chuẩn 1220x2440. Phần ván dư vẫn tính cost cho SKU. Mô hình SKU đã làm tròn số tấm nguyên; waste target 5–10%, default 7%. Công thợ 100.000đ/giờ. Giá xưởng=cost*1.30; niêm yết=giá xưởng*2; sale=niêm yết*0.80.
+## Costing hiện hành
+Tấm chuẩn 1220×2440mm. Phần dư của tấm nguyên vẫn tính cho SKU. Planner tủ áo tạo cutting list, dùng kerf 4mm, shelf-packing 2D bảo thủ và kiểm tra thêm 7% dự phòng diện tích; số tấm tính tiền là max(số tấm packing, số tấm theo diện tích có dự phòng). 7% không bị cộng thêm lần hai vào tiền ván. Công 100.000đ/giờ. Giá xưởng = cost × 1,30; giá niêm yết = giá xưởng × 2. Không còn mặc định sale 20% trong core pricing.
 
-## Cần calibration từ xưởng
-Giá mua thật theo mã ván/màu, cutting list thực tế, nẹp cạnh, thanh treo, tay nắm, vít/keo, thời gian công thực tế, vận chuyển/lắp đặt, VAT. Khi có các số này chỉ thay config/BOM, không đổi kiến trúc website.
+## Cần calibration trước báo giá chính thức
+Giá mua thật theo mã/màu ván; cutting list đã duyệt của thợ; chiều vân và quy tắc xoay chi tiết; nẹp cạnh; thanh treo; ray/bản lề/tay nắm; vít/keo; công thực tế; vận chuyển/lắp đặt; VAT. Planner hiện là công cụ dự toán, không thay phần mềm nesting/CNC của xưởng.
