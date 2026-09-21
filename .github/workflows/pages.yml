@@ -15,11 +15,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.19.0
       - uses: actions/setup-node@v4
         with:
           node-version: 24
-      - run: npm install
-      - run: npm run build
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm lint
+      - run: pnpm test
+      - run: pnpm typecheck
+      - run: pnpm build
         env:
           NEXT_PUBLIC_SITE_URL: https://thuvanreal-ai.github.io/mora-noi-that
           NEXT_PUBLIC_LEAD_ENDPOINT: https://script.google.com/macros/s/AKfycbzhVcqLTgoWnYHv9Z-IMO82kZqsyN7-L9kx-xGw9N08mp2AmWFWbuoXJ7ZPMfdW9t47/exec
@@ -27,8 +34,6 @@ jobs:
           NEXT_PUBLIC_GOOGLE_ADS_ID: ${{ vars.NEXT_PUBLIC_GOOGLE_ADS_ID }}
           NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL: ${{ vars.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL }}
       - uses: actions/configure-pages@v5
-        with:
-          enablement: true
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
