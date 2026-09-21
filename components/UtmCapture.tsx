@@ -1,1 +1,10 @@
-"use client";import {useEffect} from "react";const KEYS=["utm_source","utm_medium","utm_campaign","gclid"];export default function UtmCapture(){useEffect(()=>{const q=new URLSearchParams(location.search);KEYS.forEach(k=>{const v=q.get(k);if(v)sessionStorage.setItem(k,v)});const fill=()=>document.querySelectorAll<HTMLInputElement>("input[type=hidden]").forEach(el=>{if(KEYS.includes(el.name))el.value=sessionStorage.getItem(el.name)||"";if(el.name==="page_url")el.value=location.href;if(el.name==="website")el.value="MORA Nội Thất"});fill();const observer=new MutationObserver(fill);observer.observe(document.body,{childList:true,subtree:true});return()=>observer.disconnect()},[]);return null}
+"use client";
+import { useEffect } from "react";
+import { usePathname } from "next/navigation";
+export default function UtmCapture() {
+  const path = usePathname();
+  useEffect(() => {
+    try { const q = new URLSearchParams(location.search); ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "gclid"].forEach(k => { const v = q.get(k); if (v) sessionStorage.setItem(k, v); }); } catch { /* Form captures current URL when storage is unavailable. */ }
+  }, [path]);
+  return null;
+}

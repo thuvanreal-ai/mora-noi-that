@@ -1,26 +1,33 @@
-const SHEET_NAME="Leads";
-const THANK_YOU_BASE="https://thuvanreal-ai.github.io/mora-noi-that/cam-on/";
-const HEADERS=["timestamp","website","gclid","product","sku","size","custom_width","custom_height","custom_depth","viewed_price","name","phone","house_number","street","ward","province","note","page_url","utm_source","utm_medium","utm_campaign"];
-function clean(v){return String(v||"").replace(/^[=+\-@]/,"'").trim().slice(0,1000)}
-function doPost(e){
- const lock=LockService.getScriptLock();
- try{
-  const p=e&&e.parameter?e.parameter:{};
-  if(p.company_website)return HtmlService.createHtmlOutput("OK");
-  const name=clean(p.name),phone=clean(p.phone).replace(/\s+/g,"");
-  if(!name||!/^0\d{9,10}$/.test(phone))throw new Error("invalid required lead fields");
-  p.phone=phone;
-  lock.waitLock(10000);
-  const ss=SpreadsheetApp.getActiveSpreadsheet();
-  let sh=ss.getSheetByName(SHEET_NAME);
-  if(!sh)sh=ss.insertSheet(SHEET_NAME);
-  if(sh.getLastRow()===0)sh.appendRow(HEADERS);
-  sh.appendRow(HEADERS.map(k=>k==="timestamp"?new Date():clean(p[k])));
-  const token=Utilities.getUuid();
-  const redirect=THANK_YOU_BASE+"?submitted="+encodeURIComponent(token);
-  return HtmlService.createHtmlOutput('<meta charset="utf-8"><script>location.replace("'+redirect+'")</script><p>Đã nhận thông tin. MORA sẽ liên hệ xác nhận.</p>')
- }catch(err){
-  return HtmlService.createHtmlOutput("Có lỗi khi nhận thông tin. Vui lòng gọi 0916 85 85 66.")
- }finally{try{lock.releaseLock()}catch(_){}}
+const SHEET_NAME = "Leads";
+const ALLOWED_ORIGINS = ["https://thuvanreal-ai.github.io"];
+const HEADERS = ["timestamp","website","gclid","product","sku","size","custom_width","custom_height","custom_depth","viewed_price","name","phone","house_number","street","ward","province","note","page_url","utm_source","utm_medium","utm_campaign","utm_term","utm_content","request_id"];
+function clean(v) { const s = String(v || "").trim().slice(0, 2000); return /^[=+\-@]/.test(s) ? "'" + s : s; }
+function result(p, ok) {
+  const origin = ALLOWED_ORIGINS.includes(p.return_origin) ? p.return_origin : ALLOWED_ORIGINS[0];
+  const data = JSON.stringify({ type: "mora:lead-result", ok: ok, requestId: p.request_id || "" }).replace(/</g, "\\u003c");
+  return HtmlService.createHtmlOutput('<meta charset="utf-8"><p>' + (ok ? 'Đã nhận yêu cầu đặt hàng.' : 'Chưa lưu được yêu cầu. Vui lòng gọi 0916 85 85 66.') + '</p><script>var a=window.parent;for(var i=0;i<6;i++){a.postMessage(' + data + ',' + JSON.stringify(origin) + ');if(a===a.parent)break;a=a.parent;}</script>').setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
 }
-function doGet(){return ContentService.createTextOutput("MORA Lead Hub OK")}
+function doPost(e) {
+  const p = e && e.parameter ? e.parameter : {};
+  const lock = LockService.getScriptLock();
+  try {
+    if (p.company_website || !ALLOWED_ORIGINS.includes(p.return_origin)) return result(p, false);
+    p.phone = String(p.phone || "").replace(/\s+/g, "");
+    if (!clean(p.name) || !/^0\d{9,10}$/.test(p.phone) || !/^[a-f0-9-]{36}$/i.test(p.request_id || "")) return result(p, false);
+    if (["house_number", "street", "ward", "province"].some(k => !clean(p[k]))) return result(p, false);
+    lock.waitLock(10000);
+    const ss = SpreadsheetApp.getActiveSpreadsheet();
+    const sh = ss.getSheetByName(SHEET_NAME) || ss.insertSheet(SHEET_NAME);
+    if (!sh.getLastRow()) sh.appendRow(HEADERS);
+    let headers = sh.getRange(1, 1, 1, sh.getLastColumn()).getValues()[0].map(String);
+    HEADERS.forEach(k => { if (!headers.includes(k)) headers.push(k); });
+    sh.getRange(1, 1, 1, headers.length).setValues([headers]);
+    const idColumn = headers.indexOf("request_id") + 1;
+    if (sh.getLastRow() > 1 && sh.getRange(2, idColumn, sh.getLastRow() - 1, 1).createTextFinder(p.request_id).matchEntireCell(true).findNext()) return result(p, true);
+    sh.appendRow(headers.map(k => k === "timestamp" ? new Date() : clean(p[k])));
+    SpreadsheetApp.flush();
+    return result(p, true);
+  } catch (_) { return result(p, false); }
+  finally { try { lock.releaseLock(); } catch (_) {} }
+}
+function doGet() { return ContentService.createTextOutput("MORA Lead Hub OK"); }

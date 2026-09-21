@@ -1,1 +1,17 @@
-"use client";import {useEffect} from "react";export default function ConversionSignal(){useEffect(()=>{const token=new URLSearchParams(location.search).get("submitted");if(!token||token.length<8)return;const key="mora_form_conversion_"+token;if(sessionStorage.getItem(key))return;const w=window as any;if(!w.gtag)return;w.gtag("event","generate_lead",{method:"form"});const id=process.env.NEXT_PUBLIC_GOOGLE_ADS_ID,label=process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL;if(id&&label)w.gtag("event","conversion",{send_to:id+"/"+label});sessionStorage.setItem(key,"1")},[]);return null}
+"use client";
+import { useEffect } from "react";
+// Compatibility with the existing Apps Script success redirect, after appendRow.
+// A bare thank-you-page visit never fires an advertising conversion.
+export default function ConversionSignal() {
+  useEffect(() => {
+    const token = new URLSearchParams(location.search).get("submitted");
+    if (window === window.top || !token || !/^[a-f0-9-]{36}$/i.test(token)) return;
+    let ancestor = window.parent;
+    for (let i = 0; i < 6; i++) {
+      ancestor.postMessage({ type: "mora:lead-result", ok: true, legacyToken: token }, location.origin);
+      if (ancestor === ancestor.parent) break;
+      ancestor = ancestor.parent;
+    }
+  }, []);
+  return null;
+}

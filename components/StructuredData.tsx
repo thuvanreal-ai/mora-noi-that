@@ -1,2 +1,2 @@
-import {site} from "@/lib/site";
-export default function StructuredData(){const data={"@context":"https://schema.org","@type":"HomeAndConstructionBusiness",name:site.name,telephone:"+84 916 858 566",address:{"@type":"PostalAddress",streetAddress:"Đường Lê Trọng Tấn",addressLocality:"Tân Phú",addressRegion:"TP.HCM",addressCountry:"VN"},url:site.url};return <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(data)}}/>}
+import {site} from '@/lib/site';
+export default function StructuredData(){const data={'@context':'https://schema.org','@type':'Organization',name:site.name,telephone:'+84916858566',url:site.url,contactPoint:{'@type':'ContactPoint',telephone:'+84916858566',contactType:'customer service',availableLanguage:'vi'}};return <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(data).replace(/</g,'\\u003c')}}/>}
